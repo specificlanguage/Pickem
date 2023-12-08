@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {environment} from "../environments/environment";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,3 @@ import {environment} from "../environments/environment";
 export class AppComponent {
   title = 'pickem';
 }
-
-console.log(environment.firebase)
