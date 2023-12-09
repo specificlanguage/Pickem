@@ -1,12 +1,11 @@
 import {Component, inject} from '@angular/core';
 import {ToolbarComponent} from "../../components/toolbar/toolbar.component";
 import {Auth} from "@angular/fire/auth";
-import {Subscription} from "rxjs";
 import {AsyncPipe, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-homepage',
+  selector: 'pickem-homepage',
   standalone: true,
   imports: [ToolbarComponent, AsyncPipe, NgIf, RouterLink],
   templateUrl: './homepage.component.html',

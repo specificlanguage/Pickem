@@ -3,7 +3,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {LoginFormComponent} from "../../components/login-form/login-form.component";
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'pickem-login-page',
   standalone: true,
   templateUrl: './login-page.component.html',
   imports: [

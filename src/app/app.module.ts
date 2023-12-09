@@ -14,9 +14,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {provideRouter, withComponentInputBinding} from "@angular/router";
+import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
 
 
 @NgModule({
@@ -33,6 +33,7 @@ import {provideRouter, withComponentInputBinding} from "@angular/router";
 
     // Components
     ToolbarComponent,
+    ProfileMenuComponent,
 
     // Pages
     HomepageComponent,

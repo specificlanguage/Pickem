@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatIconModule} from "@angular/material/icon";
+import {ProfileMenuComponent} from "../profile-menu/profile-menu.component";
 
 @Component({
-  selector: 'app-toolbar',
+  selector: 'pickem-toolbar',
   standalone: true,
   templateUrl: './toolbar.component.html',
   imports: [
     MatToolbarModule,
-    MatIconModule
+    ProfileMenuComponent
   ],
   styleUrls: ['./toolbar.component.scss']
 })

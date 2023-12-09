@@ -26,7 +26,7 @@ export const passwordMatchValidator: ValidatorFn = (
 }
 
 @Component({
-  selector: 'app-login-form',
+  selector: 'pickem-login-form',
   standalone: true,
   imports: [CommonModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatDividerModule, FontAwesomeModule],
   templateUrl: './login-form.component.html',
@@ -54,7 +54,6 @@ export class LoginFormComponent {
         console.log(userCredential.user.displayName);
         this.router.navigate([""]);
       })
-
   }
 
   onGoogleLogin() {
