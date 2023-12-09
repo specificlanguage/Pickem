@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatTabsModule} from "@angular/material/tabs";
 import {LoginFormComponent} from "../../components/login-form/login-form.component";
+import {RegisterFormComponent} from "../../components/register-form/register-form.component";
 
 @Component({
   selector: 'pickem-login-page',
@@ -8,7 +9,8 @@ import {LoginFormComponent} from "../../components/login-form/login-form.compone
   templateUrl: './login-page.component.html',
   imports: [
     MatTabsModule,
-    LoginFormComponent
+    LoginFormComponent,
+    RegisterFormComponent
   ],
   styleUrls: ['./login-page.component.scss']
 })

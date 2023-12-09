@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AbstractControl,
@@ -17,14 +17,6 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {Auth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "@angular/fire/auth";
 import {Router} from "@angular/router";
 
-export const passwordMatchValidator: ValidatorFn = (
-  control: AbstractControl,
-): ValidationErrors | null => {
-  const password = control.get("password")
-  const confirmed = control.get("confirmPassword")
-  return password && confirmed && password.value !== confirmed.value ? {confirmPassword: true} : null;
-}
-
 @Component({
   selector: 'pickem-login-form',
   standalone: true,
@@ -34,26 +26,33 @@ export const passwordMatchValidator: ValidatorFn = (
 })
 export class LoginFormComponent {
 
+  @Input("loginError")
+  loginError: string | null = null;
   auth: Auth = inject(Auth);
   router: Router = inject(Router);
 
   loginForm = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required]),
-    // "displayName": new FormControl("", [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-    // "email": new FormControl("", [Validators.required, Validators.email]),
-    // "password": new FormControl("", [Validators.required, Validators.minLength(6)]),
-    // "confirmPassword": new FormControl("", [Validators.required])
-  }, {validators: [passwordMatchValidator]})
+  })
 
   protected readonly faGoogle = faGoogle;
 
   onLoginSubmit(form: FormGroup) {
-    signInWithEmailAndPassword(this.auth, form.value.email, form.value.password)
-      .then(userCredential => {
-        console.log(userCredential.user.displayName);
-        this.router.navigate([""]);
-      })
+    this.loginError = null;
+    if(form.valid) {
+      signInWithEmailAndPassword(this.auth, form.value.email, form.value.password)
+        .then(userCredential => {
+          console.log(userCredential.user.displayName);
+          this.router.navigate([""]);
+        })
+        .catch(error => {
+          console.log(error)
+          this.loginError = "Something went wrong. You might already have an account via Google."
+        });
+    } else {
+      this.loginError = "Resolve all errors first before logging in."
+    }
   }
 
   onGoogleLogin() {
@@ -62,6 +61,7 @@ export class LoginFormComponent {
         console.log(userCredential.user.displayName)
         this.router.navigate([""]);
       })
+      .catch(error => console.log(error));
   }
 
 }
