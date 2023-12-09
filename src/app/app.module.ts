@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import {AppRoutingModule, routes} from './app-routing.module';
 import { AppComponent } from './app.component';
 import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {provideAuth, getAuth} from "@angular/fire/auth";
@@ -13,6 +13,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {provideRouter, withComponentInputBinding} from "@angular/router";
 
 
 @NgModule({
@@ -32,14 +36,18 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 
     // Pages
     HomepageComponent,
+    LoginPageComponent,
 
     // Material
     MatSlideToggleModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+
+    // External
+    FontAwesomeModule,
   ],
-  providers: [],
+  providers: [provideRouter(routes, withComponentInputBinding())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
