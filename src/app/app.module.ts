@@ -17,37 +17,41 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {provideRouter, withComponentInputBinding} from "@angular/router";
 import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
-  imports: [
-    // Universal stuff
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    imports: [
+        // Universal stuff
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideAuth(() => getAuth()),
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
 
-    // Components
-    ToolbarComponent,
-    ProfileMenuComponent,
+        // Components
+        ToolbarComponent,
+        ProfileMenuComponent,
+        FooterComponent,
 
-    // Pages
-    HomepageComponent,
-    LoginPageComponent,
+        // Pages
+        HomepageComponent,
+        LoginPageComponent,
 
-    // Material
-    MatSlideToggleModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
+        // Material
+        MatSlideToggleModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
 
-    // External
-    FontAwesomeModule,
-  ],
+        // External
+        FontAwesomeModule,
+        MatToolbarModule,
+    ],
   providers: [provideRouter(routes, withComponentInputBinding())],
   bootstrap: [AppComponent]
 })

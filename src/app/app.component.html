@@ -1,5 +1,9 @@
-<pickem-toolbar></pickem-toolbar>
+<div class="flex flex-col min-h-screen">
+  <pickem-toolbar></pickem-toolbar>
 
-<div class="max-w-5xl mx-auto">
-  <router-outlet></router-outlet>
+  <main class="flex-grow">
+    <router-outlet></router-outlet>
+  </main>
+
+  <pickem-footer></pickem-footer>
 </div>
