@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {ProfileMenuComponent} from "../profile-menu/profile-menu.component";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'pickem-toolbar',
@@ -8,7 +9,8 @@ import {ProfileMenuComponent} from "../profile-menu/profile-menu.component";
   templateUrl: './toolbar.component.html',
   imports: [
     MatToolbarModule,
-    ProfileMenuComponent
+    ProfileMenuComponent,
+    RouterLink
   ],
   styleUrls: ['./toolbar.component.scss']
 })

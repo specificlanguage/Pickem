@@ -19,6 +19,7 @@ import {provideRouter, withComponentInputBinding} from "@angular/router";
 import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { GamePageComponent } from './pages/game-page/game-page.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
         // Pages
         HomepageComponent,
         LoginPageComponent,
+        GamePageComponent,
 
         // Material
         MatSlideToggleModule,
