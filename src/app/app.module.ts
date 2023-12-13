@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import {importProvidersFrom, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import {AppRoutingModule, routes} from './app-routing.module';
 import { AppComponent } from './app.component';
 import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
@@ -20,6 +19,7 @@ import { ProfileMenuComponent } from './components/profile-menu/profile-menu.com
 import { FooterComponent } from './components/footer/footer.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { GamePageComponent } from './pages/game-page/game-page.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -54,7 +54,10 @@ import { GamePageComponent } from './pages/game-page/game-page.component';
         FontAwesomeModule,
         MatToolbarModule,
     ],
-  providers: [provideRouter(routes, withComponentInputBinding())],
+  providers: [
+    provideRouter(routes, withComponentInputBinding()),
+    importProvidersFrom(HttpClientModule),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

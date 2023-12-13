@@ -1,1 +1,10 @@
-<h3 class="text-3xl font-bold my-5">Games</h3>
+<div class="my-5">
+  <h3 class="text-3xl font-bold">Games</h3>
+  <h5 class="text-xl font-bold text-neutral-700">March 30, 2024</h5>
+</div>
+
+<div *ngFor="let game of games">
+  <div class="my-4">
+    <pickem-game-card [game]="game"></pickem-game-card>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<mat-card *ngIf="game">
+  <mat-card-header>
+    <mat-card-title>{{game.awayName}} vs. {{game.homeName}}</mat-card-title>
+    <mat-card-subtitle>{{game.venue}} - {{game.startTimeUTC.toString() | date:'MMM dd, hh:mm a':'utc-8' }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    id: {{game.id}}
+  </mat-card-content>
+</mat-card>
