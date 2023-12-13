@@ -18,8 +18,10 @@ export class GamePageComponent {
 
   constructor(private backendService: BackendRequestService) {
     this.backendService.getGamesByDate(2024, 3, 28).subscribe(data => {
-      console.log(data[0].startTimeUTC, typeof(data[0].startTimeUTC))
-      this.games = data.sort((g1, g2) => new Date(g1.startTimeUTC).getTime() - new Date(g2.startTimeUTC).getTime())
+      const unSchedGames = data.filter(g => g.startTimeUTC.toString().endsWith("33:00"))  // Somehow automatic TBD
+      const schedGames = data.filter(g => !unSchedGames.includes(g))
+      this.games = schedGames.sort((g1, g2) => new Date(g1.startTimeUTC).getTime() - new Date(g2.startTimeUTC).getTime())
+      this.games.push(...unSchedGames)
     })
   }
 
