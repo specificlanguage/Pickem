@@ -3,6 +3,7 @@ import {Game} from '../../types/types'
 import {BackendRequestService} from "../../services/backend-request.service";
 import {GameCardComponent} from "../../components/game-card/game-card.component";
 import {NgForOf} from "@angular/common";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @Component({
   selector: 'pickem-game-page',
@@ -10,7 +11,8 @@ import {NgForOf} from "@angular/common";
   templateUrl: './game-page.component.html',
   imports: [
     GameCardComponent,
-    NgForOf
+    NgForOf,
+    MatGridListModule
   ],
   styleUrls: ['./game-page.component.scss']
 })

@@ -1,10 +1,13 @@
-<div class="my-5">
+<div class="mt-5">
   <h3 class="text-3xl font-bold">Games</h3>
   <h5 class="text-xl font-bold text-neutral-700">March 30, 2024</h5>
 </div>
 
-<div *ngFor="let game of games" class="mx-2">
-  <div class="my-4">
-    <pickem-game-card [game]="game"></pickem-game-card>
-  </div>
-</div>
+<mat-grid-list cols="3" rowHeight="3:2" class="mb-10 mt-4">
+  <mat-grid-tile *ngFor="let game of games">
+    <div class="w-full py-0 mx-0.5">
+      <pickem-game-card [game]="game"></pickem-game-card>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
