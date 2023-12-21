@@ -1,13 +1,36 @@
-<div class="mt-5">
-  <h3 class="text-3xl font-bold">Games</h3>
-  <h5 class="text-xl font-bold text-neutral-700">March 30, 2024</h5>
+<div class="mt-5 space-x-10 flex">
+  <div>
+  <p class="text-3xl font-bold break-after-avoid">Games</p>
+  <p class="text-xl font-bold text-neutral-700">{{displayDate}}</p>
+  </div>
+  <span class="spacer"></span>
+  <mat-button-toggle-group class="my-3" #group="matButtonToggleGroup"
+                           [value]="viewByDay" (valueChange)="onViewChange(group.value)">
+    <mat-button-toggle [value]="true">Day</mat-button-toggle>
+    <mat-button-toggle [value]="false">Series</mat-button-toggle>
+  </mat-button-toggle-group>
 </div>
 
-<mat-grid-list cols="3" rowHeight="3:2" class="mb-10 mt-4">
-  <mat-grid-tile *ngFor="let game of games">
-    <div class="w-full py-0 mx-0.5">
-      <pickem-game-card [game]="game"></pickem-game-card>
-    </div>
-  </mat-grid-tile>
-</mat-grid-list>
+<mat-divider></mat-divider>
 
+<div>
+  <div *ngIf="viewByDay; else viewSeries">
+    <mat-grid-list cols="3" rowHeight="3:2" class="mb-10 mt-4">
+      <mat-grid-tile *ngFor="let game of dayGames" class="">
+        <div class="w-full py-0 mx-0.5">
+          <pickem-game-card [game]="game"></pickem-game-card>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <ng-template #viewSeries>
+    <mat-grid-list cols="3" rowHeight="3:2" class="mb-10 mt-4">
+      <mat-grid-tile *ngFor="let game of seriesGames">
+        <div class="w-full py-0 mx-0.5">
+          <pickem-game-card [game]="game"></pickem-game-card>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </ng-template>
+</div>
