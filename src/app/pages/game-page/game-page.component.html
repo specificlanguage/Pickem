@@ -1,7 +1,8 @@
 <div class="mt-5 space-x-10 flex">
   <div>
-  <p class="text-3xl font-bold break-after-avoid">Games</p>
-  <p class="text-xl font-bold text-neutral-700">{{displayDate}}</p>
+    <p class="text-3xl font-bold break-after-avoid">Games</p>
+    <p class="text-xl font-bold text-neutral-700" *ngIf="viewByDay; else viewBySeries">{{viewByDayDisplayDate}}</p>
+    <ng-template #viewBySeries>{{viewBySeriesDisplayDate}}</ng-template>
   </div>
   <span class="spacer"></span>
   <mat-button-toggle-group class="my-3" #group="matButtonToggleGroup"
@@ -25,10 +26,10 @@
   </div>
 
   <ng-template #viewSeries>
-    <mat-grid-list cols="3" rowHeight="3:2" class="mb-10 mt-4">
-      <mat-grid-tile *ngFor="let game of seriesGames">
+    <mat-grid-list cols="2" rowHeight="7:4" class="mb-10 mt-4">
+      <mat-grid-tile *ngFor="let series of seriesGames | keyvalue">
         <div class="w-full py-0 mx-0.5">
-          <pickem-game-card [game]="game"></pickem-game-card>
+          <pickem-series-card [series]="series.value"></pickem-series-card>
         </div>
       </mat-grid-tile>
     </mat-grid-list>

@@ -9,16 +9,24 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <form>
+    <form class="mt-2">
       <mat-radio-group>
         <div>
-          <mat-radio-button value="away" labelPosition="before">{{game.awayName}}</mat-radio-button>
+          <img ngSrc='https://midfield.mlbstatic.com/v1/team/{{game.awayTeam_id.toString()}}/spots/48'
+               alt="{{game.awayName}}" height=30 width=30 class="float-left mr-2 mt-1">
+          <mat-radio-button value="away" labelPosition="before">
+            <p>{{game.awayName}}</p>
+          </mat-radio-button>
         </div>
         <div>
-          <mat-radio-button value="home" labelPosition="before">{{game.homeName}}</mat-radio-button>
+          <img ngSrc='https://midfield.mlbstatic.com/v1/team/{{game.homeTeam_id.toString()}}/spots/48'
+               alt="{{game.homeName}}" height=30 width=30 class="float-left mr-2 mt-1">
+          <mat-radio-button value="home" labelPosition="before">
+            <p>{{game.homeName}}</p>
+          </mat-radio-button>
         </div>
       </mat-radio-group>
-      <button mat-raised-button class="float-right" color="primary">Lock</button>
+      <button mat-raised-button class="float-right" color="primary">Pick</button>
     </form>
   </mat-card-content>
 </mat-card>

@@ -20,40 +20,42 @@ import { FooterComponent } from './components/footer/footer.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { GamePageComponent } from './pages/game-page/game-page.component';
 import {HttpClientModule} from "@angular/common/http";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
-    imports: [
-        // Universal stuff
-        provideFirebaseApp(() => initializeApp(environment.firebase)),
-        provideAuth(() => getAuth()),
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
+  imports: [
+    // Universal stuff
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
 
-        // Components
-        ToolbarComponent,
-        ProfileMenuComponent,
-        FooterComponent,
+    // Components
+    ToolbarComponent,
+    ProfileMenuComponent,
+    FooterComponent,
 
-        // Pages
-        HomepageComponent,
-        LoginPageComponent,
-        GamePageComponent,
+    // Pages
+    HomepageComponent,
+    LoginPageComponent,
+    GamePageComponent,
 
-        // Material
-        MatSlideToggleModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
+    // Material
+    MatSlideToggleModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
 
-        // External
-        FontAwesomeModule,
-        MatToolbarModule,
-    ],
+    // External
+    FontAwesomeModule,
+    MatToolbarModule,
+    MatCardModule,
+  ],
   providers: [
     provideRouter(routes, withComponentInputBinding()),
     importProvidersFrom(HttpClientModule),
